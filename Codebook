@@ -1,0 +1,45 @@
+
+Data source:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Process:
+1. Install and load data.table and reshape2 package in order to retrieve data
+2. Read X_test & y_test data
+3. Read activity_labels - subsetting for second column only
+4. Read features - subsetting for second column only
+5. Read subject_test
+6. Define which features are mean and standard deviation
+7. Add feature names to x_test data
+8. Limit x_test data to only mean and standard deviation
+9. Add activity labels to y_test
+10. Add Suject label to subject_test
+11. Merge subject_test, y_test, x_test
+12. Read X_train & y_train data
+13. Read subject_train
+14. Add feature names to x_train data
+15. Limit x_train data to only mean and standard deviation
+16. Add activity labels to y_train
+17. Add Suject lable to subject_train
+18. Merge subject_train, y_train, x_train
+19. Merge test and train data
+20. Melt merged_data 
+21. Apply mean function and create tidy_data set
+22. Write tidy data file
+
+Variables:
+x_test - data.frame built from X_test.txt
+y_test - data.frame built from y_test.txt
+activity_labels - data.frame built from activity_labels.txt# 
+features - data.frame built from features.txt
+subject_test - data.frame built from subject_test.txt
+extract_features - vector that identifies feature labels that contain "mean" or "std"
+test_data - data.frame created from merging x_test, y_test, and subject_test (only including "mean" and "std" columns)
+x_train - data.frame built from X_train.txt
+y_train - data.frame built from y_train.txt
+subject_train - data.frame built from subject_train.txt
+training_data - data.frame created from merging x_train, y_train, and subject_train (only including "mean" and "std" columns)
+merged_data - data.frame created by merging test_data and training_data
+mergemelt - data.frame created by "melting" merged_data by Subject, Activity_ID and Activity Label, with variable column for all "mean" and "std" columns
+
+Output:
+tidy_data.txt - data.frame that is final output of exercise: 81 cols x 181 rows. All "std" and "mean" variables broken down by Subject and Activity
